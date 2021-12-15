@@ -14,7 +14,7 @@ const PostList = (props) => {
     const [loadMoreIter, setLoadMoreIter] = useState(0);
     const sortBy = 'relevance';
     const searchLimit = 25;
-    const placeholderURL = '//cdn.vox-cdn.com/thumbor/8i-wKl-12cdGNC4U4LF0tzMh3xM=/0x0:640x427/1200x800/filters:focal(0x0:640x427)/cdn.vox-cdn.com/uploads/chorus_image/image/37152424/reddit_logo_640.0.jpg';
+    const placeholderURL = 'logo.png';
 
     useEffect(() => {
         if(subreddit) {
@@ -69,7 +69,7 @@ const PostList = (props) => {
                                 <li obj={post} key={i}>
                                     <h2><u>{post.data.title}</u></h2>
                                     <h3>Subreddit: {post.data.subreddit}</h3>
-                                    {post.data.is_video ? <video controls><source src={post.data.media.reddit_video.fallback_url.replace('https:', '')} type='video/mp4'/></video> : <img src={post.data.preview ? post.data.preview.images[0].source.url.replace('amp;', '').replace('https:', '') : placeholderURL} alt='' />}
+                                    {post.data.is_video ? <video controls><source src={post.data.media.reddit_video.fallback_url} type='video/mp4'/></video> : <img src={post.data.preview ? post.data.preview.images[0].source.url.replace('amp;', '') : placeholderURL} alt='' />}
                                     <h4>Author name: {post.data.author}</h4>
                                     <p>{post.data.selftext}</p>
                                     <a rel="noreferrer" href={post.data.url} target='_blank'><u>Click here to open reddit post</u></a>
@@ -80,7 +80,7 @@ const PostList = (props) => {
                                 <li obj={post} key={i}>
                                     <h2><u>{post.data.title}</u></h2>
                                     <h3>Subreddit: {post.data.subreddit}</h3>
-                                    {post.data.is_video ? <video controls><source src={post.data.media.reddit_video.fallback_url.replace('https:', '')} type='video/mp4'/></video> : <img src={post.data.preview ? post.data.preview.images[0].source.url.replace('amp;', '').replace('https:', '') : placeholderURL} alt='' />}
+                                    {post.data.is_video ? <video controls><source src={post.data.media.reddit_video.fallback_url} type='video/mp4'/></video> : <img src={post.data.preview ? post.data.preview.images[0].source.url.replace('amp;', '') : placeholderURL} alt='' />}
                                     <h4>Author name: {post.data.author}</h4>
                                     <p>{post.data.selftext}</p>
                                     <a rel="noreferrer" href={post.data.url} target='_blank'><u>Click here to open reddit post</u></a>
