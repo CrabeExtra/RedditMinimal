@@ -69,7 +69,7 @@ const PostList = (props) => {
                                 <li obj={post} key={i}>
                                     <h2><u>{post.data.title}</u></h2>
                                     <h3>Subreddit: {post.data.subreddit}</h3>
-                                    <img src={post.data.preview ? post.data.preview.images[0].source.url.replace('amp;', '') : placeholderURL} alt='' />
+                                    {post.data.is_video ? <video controls><source src={post.data.media.reddit_video.fallback_url} type='video/mp4'/><source src={post.data.media.reddit_video.fallback_url.replace('DASH_1080.mp4?source=fallback', 'audio')}/></video> : <img src={post.data.preview ? post.data.preview.images[0].source.url.replace('amp;', '') : placeholderURL} alt='' />}
                                     <h4>Author name: {post.data.author}</h4>
                                     <p>{post.data.selftext}</p>
                                     <a rel="noreferrer" href={post.data.url} target='_blank'><u>Click here to open reddit post</u></a>
@@ -80,7 +80,7 @@ const PostList = (props) => {
                                 <li obj={post} key={i}>
                                     <h2><u>{post.data.title}</u></h2>
                                     <h3>Subreddit: {post.data.subreddit}</h3>
-                                    <img src={post.data.preview ? post.data.preview.images[0].source.url.replace('amp;', '') : placeholderURL} alt='' />
+                                    {post.data.is_video ? <video controls><source src={post.data.media.reddit_video.fallback_url} type='video/mp4'/><source src={post.data.media.reddit_video.fallback_url.replace('DASH_1080.mp4?source=fallback', 'audio')}/></video> : <img src={post.data.preview ? post.data.preview.images[0].source.url.replace('amp;', '') : placeholderURL} alt='' />}
                                     <h4>Author name: {post.data.author}</h4>
                                     <p>{post.data.selftext}</p>
                                     <a rel="noreferrer" href={post.data.url} target='_blank'><u>Click here to open reddit post</u></a>
